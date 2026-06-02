@@ -1,4 +1,4 @@
-# 🏛️ Zaalima Contract Intelligence Engine
+# 🏛️ Contract Intelligence Engine
 
 **Project 1: AI-Powered Contract Intelligence & Risk Scoring (NLP)**  
 *Production-Level Data Science & Machine Learning Project — Zaalima Development*
