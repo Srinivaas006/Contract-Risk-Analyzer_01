@@ -1,0 +1,140 @@
+{
+  "contract_id": "fd6a8c1b",
+  "filename": "Test",
+  "analyzed_at": "2026-06-02T16:29:08.450946",
+  "status": "complete",
+  "text_preview": "This agreement automatically renews for successive one-year periods unless 90 days written notice is given. Liability is capped at fees paid. All intellectual property belongs to Licensor.",
+  "word_count": 27,
+  "entities": {
+    "ORGANIZATIONS": [],
+    "DATES": [
+      "90 days",
+      "one-year"
+    ],
+    "MONETARY_VALUES": []
+  },
+  "risk_analysis": {
+    "risk_score": 27,
+    "risk_grade": "B",
+    "risk_label": "LOW-MEDIUM RISK",
+    "risk_color": "#84cc16",
+    "total_clauses_detected": 3,
+    "high_risk_clauses": 3,
+    "medium_risk_clauses": 0,
+    "low_risk_clauses": 0,
+    "detected_clauses": [
+      {
+        "clause_type": "AUTO_RENEWAL",
+        "risk_level": "HIGH",
+        "description": "Auto-Renewal Trap",
+        "weight": 4,
+        "matched_keyword": "automatically renew",
+        "evidence_snippet": "This agreement automatically renews for successive one-year periods unless 90 days written notice is given. Liability is capped at fees paid. All intellectual property belongs to Licensor.",
+        "advice": "Ensure you have calendar reminders set before the opt-out deadline."
+      },
+      {
+        "clause_type": "LIABILITY_CAP",
+        "risk_level": "HIGH",
+        "description": "Liability & Indemnification",
+        "weight": 3,
+        "matched_keyword": "liability",
+        "evidence_snippet": "r periods unless 90 days written notice is given. Liability is capped at fees paid. All intellectual property belongs to Licensor.",
+        "advice": "Check if the liability cap is adequate and if indemnification is mutual."
+      },
+      {
+        "clause_type": "IP_OWNERSHIP",
+        "risk_level": "HIGH",
+        "description": "Intellectual Property Ownership Transfer",
+        "weight": 3,
+        "matched_keyword": "intellectual property",
+        "evidence_snippet": "e is given. Liability is capped at fees paid. All intellectual property belongs to Licensor.",
+        "advice": "Clarify exactly which IP is being assigned and whether it includes pre-existing IP."
+      }
+    ],
+    "recommendations": [
+      "\ud83d\udea8 3 HIGH-RISK clause(s) found \u2014 DO NOT sign without legal review!",
+      "   \u26a0\ufe0f  [AUTO_RENEWAL] Ensure you have calendar reminders set before the opt-out deadline.",
+      "   \u26a0\ufe0f  [LIABILITY_CAP] Check if the liability cap is adequate and if indemnification is mutual.",
+      "   \u26a0\ufe0f  [IP_OWNERSHIP] Clarify exactly which IP is being assigned and whether it includes pre-existing IP.",
+      "\ud83d\udca1 Always consult a qualified legal professional before signing any contract."
+    ]
+  },
+  "structure_analysis": {
+    "total_sections_found": 0,
+    "sections_identified": [],
+    "critical_clauses_present": [],
+    "critical_clauses_missing": [
+      "TERM",
+      "PAYMENT",
+      "TERMINATION",
+      "CONFIDENTIALITY",
+      "GOVERNING LAW"
+    ],
+    "completeness_score": 0.0,
+    "completeness_grade": "INCOMPLETE \u2014 HIGH RISK",
+    "average_section_length_words": 0.0,
+    "missing_clause_warnings": [
+      "\u26a0\ufe0f  Missing 'TERM' clause \u2014 this is a critical contract element!",
+      "\u26a0\ufe0f  Missing 'PAYMENT' clause \u2014 this is a critical contract element!",
+      "\u26a0\ufe0f  Missing 'TERMINATION' clause \u2014 this is a critical contract element!",
+      "\u26a0\ufe0f  Missing 'CONFIDENTIALITY' clause \u2014 this is a critical contract element!",
+      "\u26a0\ufe0f  Missing 'GOVERNING LAW' clause \u2014 this is a critical contract element!"
+    ]
+  },
+  "complexity_metrics": {
+    "word_count": 27,
+    "sentence_count": 3,
+    "avg_sentence_length_words": 9.0,
+    "flesch_kincaid_grade_approx": 10.2,
+    "legal_jargon_count": 0,
+    "legal_jargon_terms_found": [],
+    "jargon_density_per_100_words": 0.0,
+    "complexity_level": "LOW",
+    "complexity_note": "\ud83d\udfe2 Relatively readable for a legal document.",
+    "readability_concern": false
+  },
+  "dates_found": [],
+  "deadline_urgency": {
+    "termination_notice": {
+      "detected": false,
+      "description": "Notice required to terminate contract",
+      "risk_level": "LOW"
+    },
+    "renewal_opt_out_window": {
+      "detected": false,
+      "description": "Opt-out window before auto-renewal",
+      "risk_level": "LOW"
+    },
+    "payment_deadline": {
+      "detected": false,
+      "description": "Payment due within N days",
+      "risk_level": "LOW"
+    },
+    "cure_period": {
+      "detected": false,
+      "description": "Breach cure / remedy period",
+      "risk_level": "LOW"
+    },
+    "response_deadline": {
+      "detected": false,
+      "description": "Required response window",
+      "risk_level": "LOW"
+    },
+    "_summary": {
+      "high_urgency_deadlines": 0,
+      "high_urgency_items": [],
+      "overall_urgency": "LOW",
+      "action_required": false
+    }
+  },
+  "embedding_indexed": "background",
+  "summary": {
+    "risk_score": 27,
+    "risk_grade": "B",
+    "risk_label": "LOW-MEDIUM RISK",
+    "risk_color": "#84cc16",
+    "high_risk_clauses": 3,
+    "parties_found": [],
+    "completeness": "INCOMPLETE \u2014 HIGH RISK"
+  }
+}

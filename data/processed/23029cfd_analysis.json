@@ -1,0 +1,239 @@
+{
+  "contract_id": "23029cfd",
+  "filename": "Manual Analysis",
+  "analyzed_at": "2026-06-02T16:29:49.821115",
+  "status": "complete",
+  "text_preview": "SOFTWARE LICENSE AGREEMENT\n\nThis Software License Agreement (\"Agreement\") is entered into as of January 15, 2024,\nbetween Acme Technology Corp. (\"Licensor\") and Beta Solutions LLC (\"Licensee\").\n\nTERM\nThis Agreement commences on the Effective Date and continues for one (1) year.\nThis Agreement shall automatically renew for successive one-year periods unless\neither party provides written notice of non-renewal at least 90 days prior to the\nend of the then-current term.\n\nLIMITATION OF LIABILITY\nIN N...",
+  "word_count": 242,
+  "entities": {
+    "ORGANIZATIONS": [
+      "the Effective Date",
+      "LIABILITY",
+      "the License Fee",
+      "Confidential\nInformation",
+      "AAA",
+      "the State of Delaware",
+      "Acme Technology Corp.",
+      "CLAIM"
+    ],
+    "DATES": [
+      "1) year",
+      "30 days",
+      "one-year",
+      "at least 90 days",
+      "January 15, 2024"
+    ],
+    "MONETARY_VALUES": [
+      "50,000"
+    ]
+  },
+  "risk_analysis": {
+    "risk_score": 62,
+    "risk_grade": "D",
+    "risk_label": "HIGH RISK",
+    "risk_color": "#f97316",
+    "total_clauses_detected": 9,
+    "high_risk_clauses": 4,
+    "medium_risk_clauses": 5,
+    "low_risk_clauses": 0,
+    "detected_clauses": [
+      {
+        "clause_type": "AUTO_RENEWAL",
+        "risk_level": "HIGH",
+        "description": "Auto-Renewal Trap",
+        "weight": 4,
+        "matched_keyword": "automatically renew",
+        "evidence_snippet": "continues for one (1) year. This Agreement shall automatically renew for successive one-year periods unless either party provides written notice of non-renewal at least 90 days prior to the end of the then-current term. LIMITATION OF LIABILITY IN N",
+        "advice": "Ensure you have calendar reminders set before the opt-out deadline."
+      },
+      {
+        "clause_type": "NON_COMPETE",
+        "risk_level": "HIGH",
+        "description": "Non-Compete Restriction",
+        "weight": 4,
+        "matched_keyword": "non-compete",
+        "evidence_snippet": "disclose such information to any third parties. NON-COMPETE During the term and for two (2) years thereafter, Licensee agrees not to develop, market, or distribute any software product that competes with Licensor's products. INTELLECTUAL PROPERTY",
+        "advice": "Verify the duration and geographic scope \u2014 overly broad non-competes may be unenforceable."
+      },
+      {
+        "clause_type": "LIABILITY_CAP",
+        "risk_level": "HIGH",
+        "description": "Liability & Indemnification",
+        "weight": 3,
+        "matched_keyword": "liability",
+        "evidence_snippet": "the end of the then-current term. LIMITATION OF LIABILITY IN NO EVENT SHALL LICENSOR BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, OR CONSEQUENTIAL DAMAGES. LICENSOR'S TOTAL CUMULATIVE LIABILITY SHALL NOT EXCEED THE FEES PAID BY LICENSEE IN THE",
+        "advice": "Check if the liability cap is adequate and if indemnification is mutual."
+      },
+      {
+        "clause_type": "IP_OWNERSHIP",
+        "risk_level": "HIGH",
+        "description": "Intellectual Property Ownership Transfer",
+        "weight": 3,
+        "matched_keyword": "intellectual property",
+        "evidence_snippet": "product that competes with Licensor's products. INTELLECTUAL PROPERTY All work product, inventions, and deliverables created under this Agreement shall be considered work for hire and shall be the exclusive property of Licensor. Licensee hereby ass",
+        "advice": "Clarify exactly which IP is being assigned and whether it includes pre-existing IP."
+      },
+      {
+        "clause_type": "CONFIDENTIALITY",
+        "risk_level": "MEDIUM",
+        "description": "Confidentiality / NDA Obligations",
+        "weight": 2,
+        "matched_keyword": "confidential",
+        "evidence_snippet": "CENSEE IN THE TWELVE MONTHS PRECEDING THE CLAIM. CONFIDENTIALITY Each party agrees to maintain the confidentiality of the other party's Confidential Information and not to disclose such information to any third parties. NON-COMPETE During the term",
+        "advice": "Check the scope, duration, and exceptions to confidentiality obligations."
+      },
+      {
+        "clause_type": "PAYMENT_TERMS",
+        "risk_level": "MEDIUM",
+        "description": "Payment Terms & Late Penalties",
+        "weight": 2,
+        "matched_keyword": "invoice",
+        "evidence_snippet": "License Fee of $50,000 per year within 30 days of invoice. Late payments shall accrue interest at 1.5% per month.",
+        "advice": "Check payment deadlines, interest rates on late payments, and what triggers a breach."
+      },
+      {
+        "clause_type": "ARBITRATION",
+        "risk_level": "MEDIUM",
+        "description": "Dispute Resolution / Arbitration Clause",
+        "weight": 2,
+        "matched_keyword": "arbitration",
+        "evidence_snippet": "e. Any disputes shall be resolved through binding arbitration under AAA rules. PAYMENT Licensee shall pay the License Fee of $50,000 per year within 30 days of invoice. Late payments shall accrue interest at 1.5% per month.",
+        "advice": "Arbitration waives your right to jury trial \u2014 understand the venue and arbitration rules."
+      },
+      {
+        "clause_type": "EXCLUSIVITY",
+        "risk_level": "MEDIUM",
+        "description": "Exclusivity Clause",
+        "weight": 2,
+        "matched_keyword": "exclusive",
+        "evidence_snippet": "hall be considered work for hire and shall be the exclusive property of Licensor. Licensee hereby assigns all intellectual property rights to Licensor. GOVERNING LAW This Agreement shall be governed by the laws of the State of Delaware. Any disputes",
+        "advice": "Exclusivity limits your ability to work with other parties \u2014 verify the scope."
+      },
+      {
+        "clause_type": "GOVERNING_LAW",
+        "risk_level": "MEDIUM",
+        "description": "Governing Law & Jurisdiction",
+        "weight": 1,
+        "matched_keyword": "governing law",
+        "evidence_snippet": "ns all intellectual property rights to Licensor. GOVERNING LAW This Agreement shall be governed by the laws of the State of Delaware. Any disputes shall be resolved through binding arbitration under AAA rules. PAYMENT Licensee shall pay the License",
+        "advice": "Ensure the governing jurisdiction is practical and not unfairly advantageous to the other party."
+      }
+    ],
+    "recommendations": [
+      "\ud83d\udea8 4 HIGH-RISK clause(s) found \u2014 DO NOT sign without legal review!",
+      "   \u26a0\ufe0f  [AUTO_RENEWAL] Ensure you have calendar reminders set before the opt-out deadline.",
+      "   \u26a0\ufe0f  [NON_COMPETE] Verify the duration and geographic scope \u2014 overly broad non-competes may be unenforceable.",
+      "   \u26a0\ufe0f  [LIABILITY_CAP] Check if the liability cap is adequate and if indemnification is mutual.",
+      "\ud83d\udccb 5 MEDIUM-RISK clause(s) require careful review.",
+      "\ud83d\udca1 Always consult a qualified legal professional before signing any contract."
+    ]
+  },
+  "structure_analysis": {
+    "total_sections_found": 13,
+    "sections_identified": [
+      "TERM",
+      "This Agreement commences on the Effective Date and continues for one (1) year.",
+      "end of the then-current term.",
+      "LIMITATION OF LIABILITY",
+      "FEES PAID BY LICENSEE IN THE TWELVE MONTHS PRECEDING THE CLAIM.",
+      "CONFIDENTIALITY",
+      "NON-COMPETE",
+      "INTELLECTUAL PROPERTY",
+      "hereby assigns all intellectual property rights to Licensor.",
+      "GOVERNING LAW",
+      "shall be resolved through binding arbitration under AAA rules.",
+      "PAYMENT",
+      "Late payments shall accrue interest at 1.5% per month."
+    ],
+    "critical_clauses_present": [
+      "TERM",
+      "PAYMENT",
+      "CONFIDENTIALITY",
+      "GOVERNING LAW"
+    ],
+    "critical_clauses_missing": [
+      "TERMINATION"
+    ],
+    "completeness_score": 80.0,
+    "completeness_grade": "MOSTLY COMPLETE",
+    "average_section_length_words": 11.5,
+    "missing_clause_warnings": [
+      "\u26a0\ufe0f  Missing 'TERMINATION' clause \u2014 this is a critical contract element!"
+    ]
+  },
+  "complexity_metrics": {
+    "word_count": 242,
+    "sentence_count": 14,
+    "avg_sentence_length_words": 17.3,
+    "flesch_kincaid_grade_approx": 11.3,
+    "legal_jargon_count": 2,
+    "legal_jargon_terms_found": [
+      "arbitration",
+      "assign"
+    ],
+    "jargon_density_per_100_words": 0.83,
+    "complexity_level": "LOW",
+    "complexity_note": "\ud83d\udfe2 Relatively readable for a legal document.",
+    "readability_concern": false
+  },
+  "dates_found": [
+    "January 15, 2024"
+  ],
+  "deadline_urgency": {
+    "termination_notice": {
+      "detected": false,
+      "description": "Notice required to terminate contract",
+      "risk_level": "LOW"
+    },
+    "renewal_opt_out_window": {
+      "detected": true,
+      "description": "Opt-out window before auto-renewal",
+      "day_values": [
+        90
+      ],
+      "min_days": 90,
+      "urgency_flag": false,
+      "risk_level": "LOW"
+    },
+    "payment_deadline": {
+      "detected": false,
+      "description": "Payment due within N days",
+      "risk_level": "LOW"
+    },
+    "cure_period": {
+      "detected": false,
+      "description": "Breach cure / remedy period",
+      "risk_level": "LOW"
+    },
+    "response_deadline": {
+      "detected": false,
+      "description": "Required response window",
+      "risk_level": "LOW"
+    },
+    "_summary": {
+      "high_urgency_deadlines": 0,
+      "high_urgency_items": [],
+      "overall_urgency": "LOW",
+      "action_required": false
+    }
+  },
+  "embedding_indexed": "background",
+  "summary": {
+    "risk_score": 62,
+    "risk_grade": "D",
+    "risk_label": "HIGH RISK",
+    "risk_color": "#f97316",
+    "high_risk_clauses": 4,
+    "parties_found": [
+      "the Effective Date",
+      "LIABILITY",
+      "the License Fee",
+      "Confidential\nInformation",
+      "AAA",
+      "the State of Delaware",
+      "Acme Technology Corp.",
+      "CLAIM"
+    ],
+    "completeness": "MOSTLY COMPLETE"
+  }
+}

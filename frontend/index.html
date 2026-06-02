@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contract Risk Analyzer</title>
+  <link rel="stylesheet" href="/static/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ───── NAVBAR ───── -->
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <div class="logo">📄 Contract Analyzer</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#analyze">Analyze</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#about">About</a></li>
+        <li>
+          <a href="/docs" target="_blank" class="docs-link">API Docs</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ───── HOME / HERO ───── -->
+  <section id="home" class="hero">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <span class="badge">Final Year Project — NLP</span>
+        <h1>Contract Risk Analyzer</h1>
+        <p>
+          Upload any legal contract and our AI will automatically scan it,
+          detect risky clauses, extract key information, and give you a
+          <strong>risk score</strong> — all in seconds.
+        </p>
+        <div class="hero-btns">
+          <a href="#analyze" class="btn btn-primary">Try It Now</a>
+          <a href="#how-it-works" class="btn btn-outline">How It Works</a>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-card">
+          <span class="stat-num">16</span>
+          <span class="stat-label">Clause Types Detected</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num">510+</span>
+          <span class="stat-label">Training Contracts (CUAD)</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num">A–F</span>
+          <span class="stat-label">Risk Grading System</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── FEATURE CARDS ───── -->
+  <section class="features">
+    <div class="container">
+      <div class="features-grid">
+
+        <div class="feature-card">
+          <div class="feature-icon">🔍</div>
+          <h3>Entity Extraction</h3>
+          <p>Automatically finds party names, dates, and monetary amounts from the contract text.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">⚠️</div>
+          <h3>Risk Detection</h3>
+          <p>Scans for dangerous clauses like auto-renewal traps, non-competes, and liability caps.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3>Risk Scoring</h3>
+          <p>Gives an overall risk score from 0 to 100 with a letter grade and recommendations.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">📋</div>
+          <h3>Structure Check</h3>
+          <p>Checks if the contract has all essential sections and flags anything missing.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── ANALYZE SECTION ───── -->
+  <section id="analyze" class="analyze-section">
+    <div class="container">
+      <h2 class="section-title">Analyze a Contract</h2>
+      <p class="section-sub">Paste your contract text or upload a PDF file below.</p>
+
+      <!-- Tabs -->
+      <div class="tab-bar">
+        <button class="tab-btn active" id="tab-text-btn" onclick="switchTab('text')">
+          📝 Paste Text
+        </button>
+        <button class="tab-btn" id="tab-pdf-btn" onclick="switchTab('pdf')">
+          📁 Upload PDF
+        </button>
+      </div>
+
+      <!-- Text Tab -->
+      <div id="tab-text" class="tab-panel">
+        <div class="form-group">
+          <label for="contractText">Contract Text</label>
+          <textarea
+            id="contractText"
+            rows="12"
+            placeholder="Paste your contract text here...&#10;&#10;Example: This Software License Agreement is entered into on January 15, 2024, between Acme Corp and Beta LLC. The agreement shall automatically renew for successive one-year periods unless either party provides 90 days written notice..."
+          ></textarea>
+        </div>
+        <div class="form-actions">
+          <button class="btn btn-primary" onclick="analyzeText()">
+            🔍 Analyze Contract
+          </button>
+          <button class="btn btn-outline" onclick="loadSample()">
+            📋 Load Sample
+          </button>
+        </div>
+        <p id="loading-text" class="loading-msg" style="display:none;">
+          ⏳ Analyzing... (this may take a few seconds)
+          <br><small style="color:#64748b;">First run loads AI models — please wait up to 30 seconds.</small>
+        </p>
+      </div>
+
+      <!-- PDF Tab -->
+      <div id="tab-pdf" class="tab-panel" style="display:none;">
+        <div class="form-group">
+          <label for="pdfFile">Select PDF File</label>
+          <div class="file-drop">
+            <input type="file" id="pdfFile" accept=".pdf" onchange="handleFileSelect()" />
+            <div class="file-drop-inner">
+              <span class="file-icon">📁</span>
+              <p>Click to choose a PDF file</p>
+              <p id="file-name" class="file-name-display" style="display:none;"></p>
+            </div>
+          </div>
+        </div>
+        <div class="form-note">
+          ⚠️ Requires Tesseract OCR installed on your system.
+          For text analysis, use the "Paste Text" tab instead.
+        </div>
+        <div class="form-actions">
+          <button class="btn btn-primary" onclick="uploadPDF()">
+            📤 Upload &amp; Analyze
+          </button>
+        </div>
+        <p id="loading-pdf" class="loading-msg" style="display:none;">
+          ⏳ Running OCR + analysis, please wait...
+          <br><small style="color:#64748b;">First run loads AI models — this may take up to 30 seconds.</small>
+        </p>
+      </div>
+
+      <!-- Error Message -->
+      <div id="error-box" class="error-box" style="display:none;">
+        <strong>❌ Error:</strong> <span id="error-msg"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── RESULTS SECTION ───── -->
+  <section id="results-section" style="display:none;">
+    <div class="container">
+      <h2 class="section-title">Analysis Results</h2>
+      <p id="results-meta" class="section-sub"></p>
+
+      <!-- Risk Score Banner -->
+      <div class="risk-banner" id="risk-banner">
+        <div class="risk-score-box">
+          <span class="risk-grade" id="res-grade">-</span>
+          <span class="risk-score-label">Grade</span>
+        </div>
+        <div class="risk-details">
+          <div class="risk-score-num" id="res-score">-/100</div>
+          <div class="risk-label-text" id="res-label">-</div>
+          <div class="risk-counts" id="res-counts"></div>
+        </div>
+      </div>
+
+      <!-- Results Grid -->
+      <div class="results-grid">
+
+        <!-- Entities Card -->
+        <div class="result-card">
+          <h3>🔍 Extracted Entities</h3>
+          <div id="res-entities">
+            <p class="empty-msg">No entities found.</p>
+          </div>
+        </div>
+
+        <!-- Dates Found Card -->
+        <div class="result-card">
+          <h3>📅 Dates Found</h3>
+          <div id="res-dates">
+            <p class="empty-msg">No dates found.</p>
+          </div>
+        </div>
+
+        <!-- Structure Card -->
+        <div class="result-card">
+          <h3>📋 Contract Structure</h3>
+          <div id="res-structure"></div>
+        </div>
+
+        <!-- Complexity Card -->
+        <div class="result-card">
+          <h3>📖 Readability</h3>
+          <div id="res-complexity"></div>
+        </div>
+
+      </div>
+
+      <!-- Detected Clauses -->
+      <div class="result-card full-width">
+        <h3>⚠️ Detected Risk Clauses</h3>
+        <div id="res-clauses">
+          <p class="empty-msg">No risk clauses detected.</p>
+        </div>
+      </div>
+
+      <!-- Recommendations -->
+      <div class="result-card full-width">
+        <h3>💡 Recommendations</h3>
+        <ul id="res-recommendations" class="rec-list"></ul>
+      </div>
+
+      <!-- Analyze Another Button -->
+      <div style="text-align:center; margin-top: 24px;">
+        <a href="#analyze" class="btn btn-outline" onclick="resetForm()">
+          🔄 Analyze Another Contract
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── HOW IT WORKS ───── -->
+  <section id="how-it-works" class="how-section">
+    <div class="container">
+      <h2 class="section-title">How It Works</h2>
+      <p class="section-sub">Simple 3-step process</p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>Upload Contract</h3>
+          <p>Paste your contract text or upload a scanned PDF. The system extracts the text using OCR if needed.</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>AI Analysis</h3>
+          <p>The NLP pipeline extracts entities, detects risky clauses, and analyzes the document structure.</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>Get Risk Report</h3>
+          <p>Receive a complete report with a risk score, detected clauses, and actionable recommendations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── ABOUT ───── -->
+  <section id="about" class="about-section">
+    <div class="container">
+      <h2 class="section-title">About This Project</h2>
+      <p class="section-sub">
+        This is an NLP-based contract intelligence system built as part of a
+        Data Science &amp; Machine Learning course project.
+      </p>
+
+      <div class="about-grid">
+        <div class="about-card">
+          <h3>🎯 Project Goal</h3>
+          <p>
+            To build an automated system that helps non-lawyers understand
+            legal contracts by detecting risky clauses and providing
+            plain-language explanations.
+          </p>
+        </div>
+        <div class="about-card">
+          <h3>📚 Dataset</h3>
+          <p>
+            Trained using the <strong>CUAD Dataset</strong> (Contract
+            Understanding Atticus Dataset) — 510+ commercial contracts
+            with 41 expertly annotated clause categories.
+          </p>
+        </div>
+        <div class="about-card">
+          <h3>🛠️ Tech Stack</h3>
+          <ul class="tech-list">
+            <li>Python + FastAPI</li>
+            <li>HuggingFace Transformers (RoBERTa)</li>
+            <li>spaCy (Named Entity Recognition)</li>
+            <li>sentence-transformers (Embeddings)</li>
+            <li>Tesseract OCR + pdf2image</li>
+            <li>PyTorch</li>
+          </ul>
+        </div>
+        <div class="about-card">
+          <h3>🔗 API Reference</h3>
+          <ul class="api-list">
+            <li><code>POST /analyze-text/</code> — Analyze text</li>
+            <li><code>POST /upload-contract/</code> — Upload PDF</li>
+            <li><code>GET /contracts</code> — List analyzed contracts</li>
+            <li><code>POST /search/</code> — Semantic search</li>
+            <li><a href="/docs" target="_blank">Full Swagger Docs →</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── FOOTER ───── -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>Contract Risk Analyzer — NLP Final Year Project</p>
+      <p>Built with Python, FastAPI, spaCy &amp; HuggingFace Transformers</p>
+    </div>
+  </footer>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>

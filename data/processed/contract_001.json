@@ -1,0 +1,10 @@
+{
+    "contract_id": "contract_001",
+    "processed_text": "This AGREEMENT is entered into this 1st day of June 2026 by and between Zaalima Dev...",
+    "annotations": {
+        "label": "PARTIES",
+        "text_segment": "between Zaalima Dev",
+        "char_start": 64,
+        "char_end": 83
+    }
+}

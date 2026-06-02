@@ -1,0 +1,38 @@
+# ═══════════════════════════════════════════════════════════════════
+# Zaalima Contract Intelligence Engine — Requirements
+# Project 1: AI-Powered Contract Intelligence & Risk Scoring (NLP)
+# ═══════════════════════════════════════════════════════════════════
+
+# ── Core API ────────────────────────────────────────────────────────
+fastapi>=0.104.0
+uvicorn[standard]>=0.24.0
+python-multipart>=0.0.6        # Required for file uploads
+
+# ── NLP & ML ────────────────────────────────────────────────────────
+torch>=2.0.0                   # Deep learning framework
+transformers>=4.35.0           # HuggingFace transformers (RoBERTa, BERT, etc.)
+sentence-transformers>=2.2.2   # Document embeddings (downloads ~90MB model on first use)
+spacy>=3.7.0                   # NER pipeline
+                               # After install: python -m spacy download en_core_web_sm
+
+# ── OCR ─────────────────────────────────────────────────────────────
+pytesseract>=0.3.10            # Tesseract OCR Python wrapper
+pdf2image>=1.16.3              # PDF → image conversion (requires poppler)
+Pillow>=10.0.0                 # Image processing
+
+# ── Data ────────────────────────────────────────────────────────────
+pandas>=2.0.0
+numpy>=1.24.0
+scikit-learn>=1.3.0
+
+# ── Storage ─────────────────────────────────────────────────────────
+redis>=5.0.0                   # Redis client (optional — for production caching)
+
+# ── Dataset (optional — for CUAD download) ──────────────────────────
+# datasets>=2.14.0             # Uncomment to download CUAD from HuggingFace
+
+# ── Development ─────────────────────────────────────────────────────
+jupyter>=1.0.0
+
+# ── Orchestration (optional — heavy dependency) ─────────────────────
+# apache-airflow>=2.7.0        # Uncomment only if you need the retraining pipeline
